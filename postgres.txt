@@ -1,0 +1,15 @@
+sudo su - postgres
+
+psql
+
+create database django_test;
+
+create user root with password 'password';
+
+alter role root set client_encoding to 'utf-8';
+
+alter role root set timezone to 'Asia/Seoul';
+
+grant all privileges on database django_test to root;
+
+sudo /usr/pgadmin4/bin/setup-web.sh

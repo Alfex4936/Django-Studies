@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -78,9 +79,12 @@ WSGI_APPLICATION = "profiles_project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-        "OPTIONS": {"timeout": 20,},
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "django_test",
+        "USER": "root",
+        "PASSWORD": os.environ["DJANGO_PASSWORD"],
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
